@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<meta charset="utf-8">
+<title>Trang cá nhân</title>
+<link rel="icon" href="/images/logo.png">
+<link rel="stylesheet" href="/css/profile.css">
+<link href="http://netdna.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+<div class="container light-style flex-grow-1 container-p-y">
+    
+<form action="/updateprofile/<%= userView._id%>" method="post" enctype="multipart/form-data" name="myForm" onsubmit="return validate()">
+    <a href="/" style="text-decoration: none;">
+        <img src="/images/logo.png" style="width: 8%">
+        <img src="/images/title.png" style="width: 30%">
+    </a>
+
+    <center>
+        <h4 class="font-weight-bold py-3 mb-4">
+            THÔNG TIN TÀI KHOẢN
+        </h4>
+    </center>
+
+    <div class="card overflow-hidden">
+        <div class="row no-gutters row-bordered row-border-light">
+            <div class="col-md-3 pt-0">
+                <div class="list-group list-group-flush account-settings-links">
+                    <a class="list-group-item list-group-item-action active" data-toggle="list" href="/profileuser/<%= user._id %>">Thông tin cá nhân</a>
+                    <a class="list-group-item list-group-item-action" data-toggle="list" href="/viewpost">Xem bài đăng</a>
+                    <a class="list-group-item list-group-item-action" data-toggle="list" href="/newpost">Đăng bài viết mới</a>
+                    <% if (user.permission >= 1) { %>
+                        <a class="list-group-item list-group-item-action" data-toggle="list" href="/admin/list-post">Duyệt bài</a>
+                        <a class="list-group-item list-group-item-action" data-toggle="list" href="/admin/member">Quản lí thành viên</a>
+                    <% } %> 
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="tab-content">
+                    <div class="tab-pane fade active show" id="account-general">
+
+                        <div class="card-body media align-items-center">
+                            <img src="<%= userView.avatar%>" alt="" width="25%"
+                                class="d-block ui-w-80">
+                        </div>
+
+                        <div class="form-group card-body">
+                            <label for="exampleFormControlFile1">Hình ảnh</label>
+                            <input type="file" class="form-control-file" name="Image">
+                        </div>
+                        <hr class="border-light m-0">
+
+                        <div class="card-body">
+                            <% if (user.phoneNumber == '' || user.email == '') { %>
+                                <label class="form-label" style="color: red; font-size: 150%;"><strong>Bạn cần cập nhật thông tin cá nhân</strong></label>
+                                <br>
+                                <br>
+                            <% } %>
+                            <div class="form-group">
+                                <label class="form-label">Tên</label>
+                                <input type="text" class="form-control" value="<%= userView.name%>" name="name" id="name">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Chức vụ</label>
+                                <input type="text" class="form-control" value="<%= permisions[userView.permission]%>" disabled="disabled">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">E-mail</label>
+                                <input type="text" class="form-control mb-1" value="<%= userView.email%>" name="email" id="email">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Số điện thoại</label>
+                                <input type="text" class="form-control" value="<%= userView.phoneNumber%>" name="phoneNumber" id="phoneNumber">
+                            </div>
+                        </div>
+                    </div>
+                </div>     
+            </div>
+        </div>
+    </div>
+
+    <div class="text-right mt-3" style="padding-bottom: 10px;">
+        <button type="submit" class="btn btn-primary">Lưu thay đổi</button>&nbsp;
+        <a href="/"><button type="button" class="btn btn-default">Thoát</button></a>
+    </div>
+</form>
+</div>
+
+<script>
+    function validate() {
+        var phoneNumber = document.myForm.phoneNumber.value;
+        var email = document.myForm.email.value;
+        var status = false;
+
+        if (email.length < 1) {
+            document.getElementById('email').innerHTML = "<img src='https://viettuts.vn/example-php/javascript/unchecked.gif'> Email không đưỢc bỏ trống!";
+            status = false;
+        } else {
+            status = true;
+        }
+
+        if (phoneNumber.length < 1) {
+            document.getElementById('phoneNumber').innerHTML = "<img src='https://viettuts.vn/example-php/javascript/unchecked.gif'> Số điện thoại không đưỢc bỏ trống!";
+            status = false;
+        } else if (phoneNumber.length != 10) {
+            document.getElementById('phoneNumber').innerHTML = "<img src='https://viettuts.vn/example-php/javascript/unchecked.gif'> Số điện thoại không hợp lệ!";
+            status = false;
+        } else {
+            status = true;
+        }
+        return status;
+    }
+</script>
+
+</html>

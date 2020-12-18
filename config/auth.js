@@ -9,6 +9,7 @@ module.exports = {
     'googleAuth': {
         'clientID': '994128669195-hfhv6e5q6bvh257jt8fqavgqbut7e9tm.apps.googleusercontent.com',
         'clientSecret': 'GbJnP_Z5BCZOyOp9EJEMIsge',
-        'callbackURL': 'http://localhost:3000/auth/google/callback'
+        'callbackURL': 'https://tdmumotel.herokuapp.com/auth/google/callback',
+        'profileFields': ['id', 'name']
     }
 }

@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
+var request = require('request');
 
 var HomeCtrl = require('../controllers/home.controller');
 var ManageCtrl = require('../controllers/manage.controller');
@@ -8,6 +9,18 @@ var PostCtrl = require('../controllers/post.controller');
 
 /* GET home page. */
 router
+    .get(
+        '/paypal',
+        isLoggedIn,
+        ManageCtrl.payPal
+    )
+
+    .post(
+        '/paypal',
+        isLoggedIn,
+        ManageCtrl.payPal
+    )
+    
     .get(
         '/', 
         HomeCtrl.index
@@ -21,6 +34,11 @@ router
     .get(
         '/property-grid', 
         HomeCtrl.gid
+    )
+
+    .get(
+        '/agentgrid', 
+        HomeCtrl.agent
     )
 
     .get(
@@ -64,6 +82,13 @@ router
     )
 
     .get(
+        '/editpost/:id',
+        isLoggedIn,
+        ManageCtrl.viewPostID,
+        ManageCtrl.viewPost
+    )
+
+    .get(
         '/property-single/:id',
         PostCtrl.singlePost
     )
@@ -72,6 +97,12 @@ router
         '/updateprofile/:id',
         isLoggedIn,
         ManageCtrl.updateProfile
+    )
+
+    .post(
+        '/editpost/:id',
+        isLoggedIn,
+        ManageCtrl.updatePost
     )
 
     .post(
@@ -112,15 +143,21 @@ router
     .post(
         '/signup',
         passport.authenticate('local-signup', {
-            successRedirect: '/login',
+            successRedirect: '/',
             failureRedirect: '/signup',
             failureFlash: true
         })
     )
 
-    
 
-    
+
+    .post(
+        '/login',
+        passport.authenticate('local-login', {
+        successRedirect : '/',
+        failureRedirect : '/login',
+        failureFlash : true
+    }));
 
 
 

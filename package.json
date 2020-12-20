@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "bcrypt": "^5.0.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "ejs": "~2.6.1",
@@ -19,10 +20,14 @@
     "passport-facebook": "^3.0.0",
     "passport-google-oauth": "^2.0.0",
     "passport-local": "^1.0.0",
-	"express-ejs-layouts": "^2.5.0",
-	    "connect-flash": "^0.1.1",
+    "request": "^2.88.2",
+    "connect-flash": "^0.1.1",
+    "express-ejs-layouts": "^2.5.0",
     "express-session": "^1.17.1",
     "multer": "^1.4.2"
+  },
+  "devDependencies": {
+    
   },
   "description": "1. Đăng nhập sử dụng Facebook.\r 2. Tìm phòng trọ phù hợp theo nhu cầu.\r 3. Đăng phòng trọ dành cho chủ trọ có nhu cầu.\r 4. Có hỗ trợ trả phí để phòng trọ được ưu tiên hiển thị đầu tiên.",
   "main": "app.js",

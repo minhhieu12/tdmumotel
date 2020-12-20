@@ -1,7 +1,7 @@
 module.exports = {
     'facebookAuth': {
-        'clientID': '797496641035707',
-        'clientSecret': '7c4dc48e0a4a1fe7540a6af900b80d60',
+        'clientID': '209651860718198',
+        'clientSecret': 'a60fe08201ed35f8605da8c791071962',
         'callbackURL': 'https://tdmumotel.herokuapp.com/auth/facebook/callback',
         'profileFields': ['id', 'name']
     },

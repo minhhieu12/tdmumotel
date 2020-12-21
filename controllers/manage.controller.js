@@ -227,6 +227,8 @@ class ManageController {
                     var area = req.body.area;
                     var ultilities = req.body.ultilities;
                     var roomtype = req.body.roomtype;
+                    var idvideo = req.body.idvideo;
+                    var link360 = req.body.link360;
                     try {
                         var uploadImage = '/uploads/' + req.file.filename;
                     } 
@@ -247,6 +249,8 @@ class ManageController {
                     newPost.area = area;
                     newPost.ultilities = ultilities;
                     newPost.roomtype = roomtype;
+                    newPost.idvideo = idvideo;
+                    newPost.link360 = link360;
                     newPost.uploadImage = uploadImage;
 
                     newPost.save();

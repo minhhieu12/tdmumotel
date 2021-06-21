@@ -132,6 +132,12 @@ router
         })
     )
 
+    // test bộ lọc
+    .get(
+        '/test',
+        HomeCtrl.filters
+    )
+
     .get('/auth/google', passport.authenticate('google', {scope: ['profile', 'email']}))
     // the callback after google has authenticated the user
     .get('/auth/google/callback',
@@ -159,6 +165,8 @@ router
         failureFlash : true
     }));
 
+    
+    
 
 
 module.exports = router;

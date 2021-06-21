@@ -7,46 +7,40 @@
     </div>
     <span class="close-box-collapse right-boxed ion-ios-close"></span>
     <div class="box-collapse-wrap form">
-        <form class="form-a">
+        <form class="form-a" action="/test">
             <div class="row">
-                <div class="col-md-12 mb-2">
-                    <div class="form-group">
-                        <label for="Type">Tên phòng trọ</label>
-                        <input type="text" class="form-control form-control-lg form-control-a" placeholder="Tên phòng trọ">
-                    </div>
-                </div>
-                <div class="col-md-6 mb-2">
+
+                <div class="col-md-6 mb-2" >
                     <div class="form-group">
                         <label for="Type">Khu vực</label>
-                        <select class="form-control form-control-lg form-control-a" id="Type">
-                            <option>Thủ Dầu Một</option>
-                            <option>Thuận An</option>
-                            <option>Tân Uyên</option>
-                            <option>Bến Cát</option>
+                        <select class="form-control form-control-lg form-control-a" id="Type" name="vitri">
+                            <option selected>Tất cả</option>
+                            <option value="Thủ Dầu Một">Thủ Dầu Một</option>
+                            <option value="Thuận An">Thuận An</option>
+                            <option value="Dĩ An">Dĩ An</option>
+                            <option value="Bến Cát">Bến Cát</option>
+                            <option value="Tân Uyên">Tân Uyên</option>
+                            <option value="Bắc Tân Uyên">Bắc Tân Uyên</option>
+                            <option value="Bàu Bàng">Bàu Bàng</option>
+                            <option value="Dầu Tiếng">Dầu Tiếng</option>
+                            <option value="Phú Giáo">Phú Giáo</option>
                         </select>
                     </div>
                 </div>
-                <div class="col-md-6 mb-2">
-                    <div class="form-group">
-                        <label for="city">Gần trường TDMU</label>
-                        <select class="form-control form-control-lg form-control-a" id="city">
-                            <option>Có</option>
-                            <option>Không</option>
-                        </select>
-                    </div>
-                </div>
+                
                 <div class="col-md-6 mb-2">
                     <div class="form-group">
                         <label for="rent">Giá</label>
-                        <select class="form-control form-control-lg form-control-a" id="rent">
-                            <option>Dưới 1 triệu</option>
-                            <option>1 triệu - 2 triệu</option>
-                            <option>Trên 2 triệu</option>
+                        <select class="form-control form-control-lg form-control-a" id="rent" name="gia">
+                            <option selected>Tất cả</option>
+                            <option value="duoi_1_trieu">Dưới 1 triệu</option>
+                            <option value="tu_1_den_2_trieu">1 triệu - 2 triệu</option>
+                            <option value="tren_2_trieu">Trên 2 triệu</option>
                         </select>
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <button type="submit" class="btn btn-b">Tìm kiếm</button>
+                    <button type="submit" class="btn btn-b" value="submit">Tìm kiếm</button>
                 </div>
             </div>
         </form>

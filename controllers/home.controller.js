@@ -70,6 +70,16 @@ class HomeController {
             res.status(500).send(exception);
         }
     }
+
+    // test bộ lọc
+    static filters(req, res) {
+        let vitri = req.query.vitri;
+        if (vitri) {
+            res.send(vitri.toString());
+        } else {
+            res.send('No value!!');
+        }
+    }
 }
 
 module.exports = HomeController;

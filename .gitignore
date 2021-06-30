@@ -1,5 +1,5 @@
 # ignore all image in uploads folder
-/public/uploads/*.jpg
+#/public/uploads/*.jpg
 /public/uploads/*.bmp
 /public/uploads/*.png
 /public/uploads/*.jpeg
